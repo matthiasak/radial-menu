@@ -9,6 +9,8 @@ This is a tutorial on creating a circular, radial menu in JS and CSS, much like 
 
 Cross-platform web applications with custom user interface controls are notoriously difficult, and unstable, on multiple devices. When your design team has edgy and delightful design ideas – yet you don't know where to start – you may need to resort to "outside the box approaches." Most of the time, that requires pretty intimate knowledge of browser support in JavaScript and CSS, box-model tweaking, CSS positioning, and rendering optimization. Wrapping all this up in an edgy user interface can be tiresome, tedious, and taxing.
 
+> ### [Link to demo of tutorial/article](http://matthiasak.github.io/radial-menu)
+
 Sounds a bit rough, doesn't it?
 
 > Assumptions of this article: you are familiar with CSS layout/positioning, CSS pseudo-elements and pseudo-classes, and JavaScript prototypes.
