@@ -1,0 +1,188 @@
+
+
+/**
+ * ------------------------------------------------------- setup
+ */
+
+*, *:before, :after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+html {
+    background-image: url(./images/bg.png);
+    background-size: cover;
+}
+
+/**
+ * ------------------------------------------------------- container (of compass) section
+ */
+
+/*fullscreen container for the entire compass UI*/
+.container {
+    position: absolute;
+    top:0; left: 0;
+    height: 100%; width: 100%;
+}
+
+/*horizontal line across screen*/
+.container::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height:1px;
+    width: 100%;
+    top:50%;
+    left: 0;
+    background-color: #fff;
+    opacity: .15;
+}
+
+/*transparent black overlay layer*/
+.container::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background-color: #000;
+    opacity: .75;
+    z-index: -1;
+}
+
+/*when hovering over the compass UI, change the cursor*/
+.container:hover {
+    cursor:crosshair;
+    cursor:-webkit-grab;
+}
+
+/**
+ * ------------------------------------------------------- compass section
+ */
+
+/*the circular compass*/
+.compass {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width:50%;
+    min-width:400px;
+    max-width:500px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    left:50%;
+    z-index: 2;
+    -webkit-transform: translate(-50%, -50%) translateZ(0);
+    -webkit-transition: -webkit-transform .25s ease;
+}
+
+/*maintain a 1:1 aspect ratio (makes its box-model a square)*/
+.compass::after {
+    content:' ';
+    padding-bottom: 100%;
+    display: block;
+}
+
+/*when hovering over the compass, indicate this by illuminating it*/
+.compass:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/*when "grabbing" compass, animate it and illuminate it more to indicate action*/
+.compass:active {
+    border-color: rgba(255,255,255,0.5);
+    background-color: rgba(255,255,255,.25);
+    -webkit-transform: translate(-50%, -50%) scale(.8);
+    cursor: -webkit-grabbing;
+}
+
+
+/**
+ * ------------------------------------------------------- orbiting items
+ */
+
+.orbiter {
+    position: absolute;
+
+    width: 5%; /** animates to 15% **/
+    margin: -2.5%; /** animates to -7.5% **/
+
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform-origin: center;
+    -webkit-transition: width .25s ease, margin .25s ease;
+    border-radius: 50%;
+
+    pointer-events:none; /** disable drag'n'drop of images **/
+}
+
+/*maintain a 1:1 aspect ratio (makes its box-model a square)*/
+.orbiter::after {
+    content:'';
+    padding-bottom: 100%;
+    display: block;
+}
+
+/**
+ * ------------------------------------------------------- compass indicator ( shows north )
+ */
+
+ .north-indicator {
+    position: absolute;
+    display: block;
+    width: 50%;
+    top: 0; left: 50%;
+
+    overflow: none;
+
+    border: 1px solid transparent;
+    border-right-color:rgba(255, 255, 255, 0.25);
+    border-bottom-color:rgba(255, 255, 255, 0.25);
+
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    -webkit-transform-origin: center;
+    -webkit-transition: border-color .25s ease;
+
+    /*add a radial background*/
+}
+
+/*maintain a 1:1 aspect ratio (makes its box-model a square)*/
+.north-indicator::after {
+    content:'';
+    display: block;
+    padding-top:100%;
+}
+
+.north-indicator::before {
+    content: "N";
+    font-family: Arial, sans-serif;
+    display: inline-block;
+    color: white;
+    opacity: 0.35;
+    font-weight: 100;
+    line-height: .75em;
+    position: absolute;
+    transform: rotate(-45deg);
+    bottom: 1em;
+    right: 1em;
+    transition: opacity .25s ease;
+}
+
+/*whenever the compass is being dragged, illuminate the north indicator, too*/
+.compass:active .north-indicator {
+    border-right-color:rgba(255, 255, 255, 0.5);
+    border-bottom-color:rgba(255, 255, 255, 0.5);
+}
+
+.compass:active .north-indicator::before {
+    opacity: .75;
+}
