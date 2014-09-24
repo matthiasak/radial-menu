@@ -164,3 +164,29 @@ html {
 .compass:active .north-indicator::before {
     opacity: .75;
 }
+
+/**
+ * ------------------------------------------------------- other stuff
+ */
+
+header {
+    position: fixed;
+    z-index: 10;
+    top:0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,1);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    display: table;
+}
+header span {
+    color:white;
+    display: table-cell;
+    text-align: center;
+    padding: .5em 1em;
+}
+header a {
+    color: cyan;
+}
