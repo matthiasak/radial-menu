@@ -9,7 +9,7 @@ html, body {
     margin: 0;
 }
 html {
-    background-image: url(./images/bg.png);
+    background-image: url(../images/bg.png);
     background-size: cover;
 }
 /**
