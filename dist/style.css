@@ -191,6 +191,7 @@ header {
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
     display: table;
+    table-layout: fixed;
 }
 header span {
     color:white;
