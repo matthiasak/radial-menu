@@ -1,4 +1,4 @@
-# Rotating Elements Around Circles in CSS
+# Rotating Elements Around Circular Containers in CSS
 
 CSS Transforms can facilitate some really edgy designs. Facing North's compass UI, for instance, involves orbiting elements that animate and revolve around the center of a circle. Let's assume that our container element (with class `.compass`) has `border-radius: 50%` and is horizontally and vertically centered on the screen. Any `.orbiter` element on the interface can rotate around the edge of the circle.
 
