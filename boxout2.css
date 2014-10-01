@@ -2,8 +2,7 @@
  * ------------------------------------------------------- setup
  */
  *, *:before, :after {
-    -moz-box-sizing: border-box;
-         box-sizing: border-box;
+    box-sizing: border-box;
 }
 html, body {
     height: 100%;
@@ -15,48 +14,6 @@ html {
 }
 
 /**
- * ------------------------------------------------------- container (of compass) section
- */
-
-/*fullscreen container for the entire compass UI*/
- .container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-/*horizontal line across screen*/
- .container::before {
-    content:'';
-    display: block;
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    top: 50%;
-    left: 0;
-    background-color: #fff;
-    opacity: .15;
-}
-/*transparent black overlay layer*/
- .container::after {
-    content:'';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    opacity: .75;
-    z-index: -1;
-}
-/*when hovering over the compass UI, change the cursor*/
- .container:hover {
-    cursor: crosshair;
-    cursor: -webkit-grab;
-}
-/**
  * ------------------------------------------------------- compass section
  */
 
@@ -64,19 +21,15 @@ html {
  .compass {
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    width: 50%;
-    min-width: 400px;
-    max-width: 500px;
+    width: 500px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     position: absolute;
     top: 50%;
     left: 50%;
     z-index: 2;
-    -webkit-transform: translate(-50%, -50%) translateZ(0);
-            transform: translate(-50%, -50%) translateZ(0);
-    -webkit-transition: -webkit-transform .25s ease;
-            transition: transform .25s ease;
+    transform: translate(-50%, -50%) translateZ(0);
+    transition: transform .25s ease;
 }
 /*maintain a 1:1 aspect ratio (makes its box-model a square)*/
  .compass::after {
@@ -92,9 +45,7 @@ html {
  .compass:active {
     border-color: rgba(255, 255, 255, 0.5);
     background-color: rgba(255, 255, 255, .25);
-    -webkit-transform: translate(-50%, -50%) scale(.8);
-        -ms-transform: translate(-50%, -50%) scale(.8);
-            transform: translate(-50%, -50%) scale(.8);
+    transform: translate(-50%, -50%) scale(.8);
     cursor: -webkit-grabbing;
 }
 /**
@@ -102,20 +53,19 @@ html {
  */
  .orbiter {
     position: absolute;
-    width: 5%;
+    width: 15%;
     /** animates to 15% **/
-    margin: -2.5%;
+    margin: -7.5%;
     /** animates to -7.5% **/
     top: 50%;
     left: 50%;
-    -webkit-transform-origin: center;
-        -ms-transform-origin: center;
-            transform-origin: center;
-    -webkit-transition: width .25s ease, margin .25s ease;
-            transition: width .25s ease, margin .25s ease;
+    transform-origin: center;
+    transition: width .25s ease, margin .25s ease;
     border-radius: 50%;
     pointer-events: none;
-    /** disable drag'n'drop of images **/
+
+    /*transform: translate(-250px);*/
+    transform: rotate(25deg) translate(-250px) rotate(-25deg);
 }
 /*maintain a 1:1 aspect ratio (makes its box-model a square)*/
  .orbiter::after {
@@ -136,14 +86,9 @@ html {
     border: 1px solid transparent;
     border-right-color: rgba(255, 255, 255, 0.25);
     border-bottom-color: rgba(255, 255, 255, 0.25);
-    -webkit-transform: translate(-50%, -50%) rotate(45deg);
-        -ms-transform: translate(-50%, -50%) rotate(45deg);
-            transform: translate(-50%, -50%) rotate(45deg);
-    -webkit-transform-origin: center;
-        -ms-transform-origin: center;
-            transform-origin: center;
-    -webkit-transition: border-color .25s ease;
-            transition: border-color .25s ease;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transform-origin: center;
+    transition: border-color .25s ease;
     /*add a radial background*/
 }
 /*maintain a 1:1 aspect ratio (makes its box-model a square)*/
@@ -161,13 +106,10 @@ html {
     font-weight: 100;
     line-height: .75em;
     position: absolute;
-    -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+    transform: rotate(-45deg);
     bottom: 1em;
     right: 1em;
-    -webkit-transition: opacity .25s ease;
-            transition: opacity .25s ease;
+    transition: opacity .25s ease;
 }
 /*whenever the compass is being dragged, illuminate the north indicator, too*/
  .compass:active .north-indicator {
@@ -189,8 +131,7 @@ header {
     left: 0;
     width: 100%;
     background-color: rgba(0,0,0,1);
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+    transform: translateZ(0);
     display: table;
     table-layout: fixed;
 }

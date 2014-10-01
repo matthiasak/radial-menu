@@ -15,48 +15,6 @@ html {
 }
 
 /**
- * ------------------------------------------------------- container (of compass) section
- */
-
-/*fullscreen container for the entire compass UI*/
- .container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-/*horizontal line across screen*/
- .container::before {
-    content:'';
-    display: block;
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    top: 50%;
-    left: 0;
-    background-color: #fff;
-    opacity: .15;
-}
-/*transparent black overlay layer*/
- .container::after {
-    content:'';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    opacity: .75;
-    z-index: -1;
-}
-/*when hovering over the compass UI, change the cursor*/
- .container:hover {
-    cursor: crosshair;
-    cursor: -webkit-grab;
-}
-/**
  * ------------------------------------------------------- compass section
  */
 
@@ -64,9 +22,7 @@ html {
  .compass {
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.05);
-    width: 50%;
-    min-width: 400px;
-    max-width: 500px;
+    width: 500px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     position: absolute;
@@ -102,9 +58,9 @@ html {
  */
  .orbiter {
     position: absolute;
-    width: 5%;
+    width: 15%;
     /** animates to 15% **/
-    margin: -2.5%;
+    margin: -7.5%;
     /** animates to -7.5% **/
     top: 50%;
     left: 50%;
@@ -115,7 +71,11 @@ html {
             transition: width .25s ease, margin .25s ease;
     border-radius: 50%;
     pointer-events: none;
-    /** disable drag'n'drop of images **/
+
+    /*transform: translate(-250px);*/
+    -webkit-transform: rotate(25deg) translate(-250px) rotate(-25deg);
+        -ms-transform: rotate(25deg) translate(-250px) rotate(-25deg);
+            transform: rotate(25deg) translate(-250px) rotate(-25deg);
 }
 /*maintain a 1:1 aspect ratio (makes its box-model a square)*/
  .orbiter::after {
