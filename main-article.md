@@ -155,7 +155,7 @@ The code for these handlers, `onTouchAndMouseStart()`, `handleDrag()`, and `onTo
 
 ### Final thoughts:
 
-We have covered several sections of code for this UI. Through some calculated styling and event handling, we managed to create an interface pattern that is quite reusable and an approach that reaps the benefits of the following:
+Through some strategic approaches, we managed to create a reusable interface pattern that reaps the benefits of the following:
 
 - **Context-aware design**
 
