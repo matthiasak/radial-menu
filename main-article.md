@@ -12,7 +12,7 @@ There are three primary goals of this article:
 
 1. Demonstrate a UI approach for an interactive web documentary,
 2. Establish a "DIY" code ethic for this UI, and
-3. Cover the understated simplicity in the JS, CSS, and HTML code for this UI
+3. Demonstrate how JS, CSS, and HTML can be combined to expressively create original interfaces
 
 The context of this article is an original interface developed for an "interactive web documentary" called Facing North ([http://areyoufacingnorth.com](http://areyoufacingnorth.com)). The main interaction of Facing North involves a rotating menu, which fades in when the screen is touched or the mouse is moved during video playback, and fades out again after a few seconds.
 
@@ -126,7 +126,7 @@ Compass.prototype.rotate = function(delta) {
 3. `delta || 0` - the current rotation (in degrees, between 0 and 359) to set each `Orbiter()` (`Orbiters()` with an `i` greater than 0 will be rotated around an additional amount to distribute them evenly around the circumference of the compass UI)
 4. `~~(360 / self.orbiters.length)` - The degrees by-which to spread out each `Orbiter()`; for example, for 18 Orbiters, each Orbiter will occupy a "slice" of the compass UI (360/18 or 20°). The '~~' is a shortcut that rounds a decimal number to the nearest integer.
 
-The `Orbiter.setTransform()` code can be found online at the Github repo. 
+The `Orbiter.setTransform()` code can be found online at the Github repo.
 
 The rest of the `Compass()` constructor involves initializing touch and mouse event handlers:
 
@@ -154,6 +154,8 @@ The code for these handlers, `onTouchAndMouseStart()`, `handleDrag()`, and `onTo
 ![The "start" handler initializes the "move" handler and stores the initial position of the mouse/finger. The "move" handler then stores a new position each time the event is fired, calculating the rotation around the center of the compass UI.](./5.png)
 
 ### Final thoughts:
+
+We have covered several sections of code for this UI. Through some calculated styling and event handling, we managed to create an interface pattern that is quite reusable and an approach that reaps the benefits of the following:
 
 - **Context-aware design**
 
